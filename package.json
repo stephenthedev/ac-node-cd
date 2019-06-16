@@ -1,7 +1,7 @@
 {
   "name": "ac-node-cd",
   "description": "Example Continuous Deployment From Pipelines to Acquia Cloud Node.JS Hosting",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "Stephen Raghunath @raghunat",
   "bin": {
     "ac-node-cd": "./bin/run"

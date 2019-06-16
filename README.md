@@ -19,7 +19,7 @@ $ npm install -g ac-node-cd
 $ ac-node-cd COMMAND
 running command...
 $ ac-node-cd (-v|--version|version)
-ac-node-cd/1.0.5 darwin-x64 node-v10.15.3
+ac-node-cd/1.0.0 darwin-x64 node-v10.15.3
 $ ac-node-cd --help [COMMAND]
 USAGE
   $ ac-node-cd COMMAND
