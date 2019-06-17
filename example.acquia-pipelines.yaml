@@ -1,0 +1,32 @@
+version: 1.0.0
+variables:
+  global:
+    AC_API_TOKEN:
+      secure: yoursecurehash
+    AC_API_SECRET:
+      secure: yoursecurehash
+    AC_DEPLOY_ENV_UUID: yourenvuuid # dev env uuid for example to keep dev up to date with master builds
+events:
+  build:
+    steps:
+      -
+        build:
+          script:
+            - 'nvm install 10'
+            - 'nvm use 10'
+            - 'npm install --production'
+      -
+        upload-artifact:
+          script:
+            - 'pipelines-artifact start'
+            - 'pipelines-artifact upload $SOURCE_DIR'
+            # if on master, run a simple command script that will use the env vars
+            # to deploy the just built artifact to specified environment
+            # example code found at https://github.com/raghunat/ac-node-cd
+            - '\[ $PIPELINE_VCS_PATH == "node-cicd" \] && npx ac-node-cd'
+  fail-on-build:
+    steps:
+      -
+        fail:
+          script:
+            - 'pipelines-artifact fail'
