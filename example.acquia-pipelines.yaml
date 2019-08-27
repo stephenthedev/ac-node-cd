@@ -23,7 +23,7 @@ events:
             # if on master, run a simple command script that will use the env vars
             # to deploy the just built artifact to specified environment
             # example code found at https://github.com/raghunat/ac-node-cd
-            - '\[ $PIPELINE_VCS_PATH == "node-cicd" \] && npx ac-node-cd'
+            - '\[ $PIPELINE_VCS_PATH == "master" \] && npx ac-node-cd'
   fail-on-build:
     steps:
       -
